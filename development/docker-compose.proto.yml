@@ -1,0 +1,11 @@
+version: "3"
+services:
+  generate_pb_go:
+    image: gen-go
+    build:
+      context: ../
+      dockerfile: ./development/proto.Dockerfile
+    volumes:
+      - "../:/app/"
+      - "../pb:/pb"
+    entrypoint: /app/development/gen-proto.sh
